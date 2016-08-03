@@ -345,6 +345,12 @@
           }, {
             "text": "ApplicationModule.js",
             "path": "../src-out/"
+          }, {
+            "text": "_ModuleBase.js",
+            "path": "../src-out/Modules"
+          }, {
+            "text": "ModuleManager.js",
+            "path": "../src-out/Modules"
           }
       ]
     }

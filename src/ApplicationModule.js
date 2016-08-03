@@ -17,6 +17,7 @@ import connect from 'dojo/_base/connect';
 import declare from 'dojo/_base/declare';
 import lang from 'dojo/_base/lang';
 import ConfigureQuickActions from './Views/ConfigureQuickActions';
+import ModuleManager from 'argos/Modules/ModuleManager';
 import './Application';
 import './CultureInfo';
 import './Models/RecentlyViewed/Offline';
@@ -42,6 +43,11 @@ const __class = declare('argos.ApplicationModule', null, {
    * Array of dojo.subscribe bound to ApplicationModule
    */
   _subscribes: null,
+  /**
+   * @property {Array}
+   * Array of Modules
+   */
+  modules: null,
   /**
    * @property {Object}
    * The {@link App App} instance for the application
@@ -87,11 +93,12 @@ const __class = declare('argos.ApplicationModule', null, {
    */
   init: function init(application) {
     this.application = application;
-
+    this.loadModules();
     this.loadAppStatePromises();
     this.loadCustomizations();
     this.loadToolbars();
     this.loadViews();
+    this.initModules();
   },
 
   /**
@@ -99,6 +106,7 @@ const __class = declare('argos.ApplicationModule', null, {
    */
   loadAppStatPromises: function loadAppStatPromises() {
     this.loadAppStatePromises();
+    this.loadModuleAppStatePromises();
   },
 
   /**
@@ -106,13 +114,11 @@ const __class = declare('argos.ApplicationModule', null, {
    * This function should be overriden in the app and be used to register all app state promises.
    */
   loadAppStatePromises: function loadAppStatePromises() {},
-
   statics: {
     _customizationsLoaded: false,
     _viewsLoaded: false,
     _toolbarsLoaded: false,
   },
-
   /**
    * @template
    * This function should be overriden in the app and be used to register all customizations.
@@ -124,7 +130,6 @@ const __class = declare('argos.ApplicationModule', null, {
     }
 
     // Load base customizations
-
     this.statics._customizationsLoaded = true;
   },
   /**
@@ -153,9 +158,34 @@ const __class = declare('argos.ApplicationModule', null, {
     }
 
     // Load base toolbars
-
     this.statics._toolbarsLoaded = true;
   },
+  /**
+* This function loads all modules.
+*/
+  loadModules: function loadModules() {
+    if (this.statics._modulesLoaded) {
+      console.warn('Multiple calls to loadModules  detected.'); // eslint-disable-line
+      return;
+    }
+    this.statics._modulesLoaded = true;
+  },
+  /**
+ * This function init all modules.
+ */
+  initModules: function initModules() {
+    if (this.statics._modulesInit) {
+      console.warn('Multiple calls to initModules  detected.'); // eslint-disable-line
+      return;
+    }
+    ModuleManager.application = this.application;
+    ModuleManager.initModules();
+    this.statics._modulesInit = true;
+  },
+  /**
+   * @template
+   * This function should be overriden in the app and be used to register all toolbars.
+   */
   /**
    * Passes the view instance to {@link App#registerView App.registerView}.
    * @param {Object} view View instance to register
@@ -196,6 +226,12 @@ const __class = declare('argos.ApplicationModule', null, {
     if (this.application) {
       this.application.registerAppStatePromise(promise);
     }
+  },
+  /**
+   * Passes the module instance to {@link App#registerModule App.registerModule}.
+   */
+  registerModule: function registerModule(moduleConfig) {
+    ModuleManager.registerModule(moduleConfig);
   },
 });
 
