@@ -22,11 +22,11 @@ const __class = lang.setObject('argos.Models.Manager', {
       return value.get(modelType);
     }
   },
-  getModel: function getModel(modelName, modelType) {
+  getModel: function getModel(modelName, modelType, args) {
     const ModelCtor = this.get(modelName, modelType);
     let model = null;
     if (ModelCtor) {
-      model = new ModelCtor();
+      model = new ModelCtor(args);
       model.init();
     }
     return model;

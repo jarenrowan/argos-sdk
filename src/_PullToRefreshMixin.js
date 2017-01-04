@@ -74,7 +74,7 @@ const __class = declare('argos._PullToRefreshMixin', null, {
    * @param {DOMNode} scrollerNode The node that scrollers and should be pulled on to refresh.
    */
   initPullToRefresh: function initPullToRefresh(scrollerNode) {
-    if (!this.enablePullToRefresh || !window.App.supportsTouch() || !scrollerNode) {
+    if (!this.enablePullToRefresh || !this.app.supportsTouch() || !scrollerNode) {
       return;
     }
 

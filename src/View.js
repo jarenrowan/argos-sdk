@@ -101,8 +101,8 @@ const __class = declare('argos.View', [_WidgetBase, _ActionMixin, _Customization
   connectionName: false,
   connectionState: null,
   enableOfflineSupport: false,
-  constructor: function constructor(options) {
-    this.app = (options && options.app) || window.App;
+  constructor: function constructor({ app }) {
+    this.app = app;
   },
   startup: function startup() {
     this.inherited(arguments);
@@ -180,7 +180,7 @@ const __class = declare('argos.View', [_WidgetBase, _ActionMixin, _Customization
    * Returns a new instance of a model for the view.
    */
   getModel: function getModel() {
-    const model = Adapter.getModel(this.modelName);
+    const model = Adapter.getModel(this.modelName, this.app.onLine, { app: this.app });
     return model;
   },
   /**

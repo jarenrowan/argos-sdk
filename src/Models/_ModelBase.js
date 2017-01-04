@@ -46,13 +46,6 @@ export default declare('argos.Models._ModelBase', [Evented, Stateful, _Customiza
   createRelationships: function createRelationships() {
     return [];
   },
-  _appGetter: function _appGetter() {
-    return this.app || window.App;
-  },
-  _appSetter: function _appSetter(value) {
-    this.app = value;
-  },
-
   /**
    * Initializes the model with options.
    * @param options

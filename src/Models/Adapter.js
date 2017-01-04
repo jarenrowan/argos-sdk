@@ -5,14 +5,14 @@ import MODEL_TYPES from './Types';
  * @class argos.Models.Adapter
  */
 export default {
-  getModel: function getModel(entityName) {
+  getModel: function getModel(entityName, online, args) {
     let Ctor;
-    if (App.onLine) {
+    if (online) {
       Ctor = Manager.get(entityName, MODEL_TYPES.SDATA);
     } else {
       Ctor = Manager.get(entityName, MODEL_TYPES.OFFLINE);
     }
 
-    return typeof Ctor === 'function' ? new Ctor() : false;
+    return typeof Ctor === 'function' ? new Ctor(args) : false;
   },
 };

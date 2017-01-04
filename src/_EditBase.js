@@ -407,7 +407,7 @@ const __class = declare('argos._EditBase', [View], {
       security: this.options && this.options.insert ? this.insertSecurity : this.updateSecurity,
     }];
 
-    if (!App.isOnFirstView()) {
+    if (!this.app.isOnFirstView()) {
       tbar.push({
         id: 'cancel',
         cls: 'fa fa-ban fa-fw fa-lg',
@@ -956,8 +956,8 @@ const __class = declare('argos._EditBase', [View], {
   disable: function disable() {
     this.busy = true;
 
-    if (App.bars.tbar) {
-      App.bars.tbar.disableTool('save');
+    if (this.app.bars.tbar) {
+      this.app.bars.tbar.disableTool('save');
     }
 
     domClass.add(win.body(), 'busy');
@@ -968,8 +968,8 @@ const __class = declare('argos._EditBase', [View], {
   enable: function enable() {
     this.busy = false;
 
-    if (App.bars.tbar) {
-      App.bars.tbar.enableTool('save');
+    if (this.app.bars.tbar) {
+      this.app.bars.tbar.enableTool('save');
     }
 
     domClass.remove(win.body(), 'busy');
@@ -1029,7 +1029,7 @@ const __class = declare('argos._EditBase', [View], {
   onInsertCompleted: function onInsertCompleted(/* entry*/) {
     if (this.options && this.options.returnTo) {
       const returnTo = this.options.returnTo;
-      const view = App.getView(returnTo);
+      const view = this.app.getView(returnTo);
       if (view) {
         view.show();
       } else {
@@ -1168,7 +1168,7 @@ const __class = declare('argos._EditBase', [View], {
   onUpdateCompleted: function onUpdateCompleted(/* entry*/) {
     if (this.options && this.options.returnTo) {
       const returnTo = this.options.returnTo;
-      const view = App.getView(returnTo);
+      const view = this.app.getView(returnTo);
       if (view) {
         view.show();
       } else {

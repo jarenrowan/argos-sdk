@@ -52,7 +52,7 @@ const __class = declare('argos._CustomizationMixin', null, {
   },
   _getCustomizationsFor: function _getCustomizationsFor(customizationSubSet) {
     const customizationSet = customizationSubSet ? `${this.customizationSet}/${customizationSubSet}` : this.customizationSet;
-    return App.getCustomizationsFor(customizationSet, this.id);
+    return this.app.getCustomizationsFor(customizationSet, this.id);
   },
   _createCustomizedLayout: function _createCustomizedLayout(layout, customizationSubSet) {
     const customizationSet = customizationSubSet ? `${this.customizationSet}/${customizationSubSet}` : this.customizationSet;
