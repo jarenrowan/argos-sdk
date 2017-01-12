@@ -40,6 +40,7 @@
     "grunt-postcss": "^0.8.0",
     "grunt-shell": "^2.0.0",
     "grunt-template-jasmine-istanbul": "^0.5.0",
+    "less": "^2.7.2",
     "npm-watch": "^0.1.6",
     "pixrem": "^3.0.2",
     "postcss": "^5.2.10",
