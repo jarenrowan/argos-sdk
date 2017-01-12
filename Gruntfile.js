@@ -7,7 +7,7 @@ module.exports = function gruntFile(grunt) {
   grunt.loadTasks('grunt-tasks');
 
   // Register alias tasks
-  grunt.registerTask('build', ['clean', 'less']);
+  grunt.registerTask('build', ['clean', 'postcss']);
   grunt.registerTask('test', ['connect', 'jasmine:coverage']);
   grunt.registerTask('test:basic', ['connect', 'jasmine:basic']);
 };
