@@ -1,0 +1,235 @@
+/*
+ * Dojo layer
+ */
+var dojoDeps = [
+    "dojo/DeferredList",
+    "dojo/NodeList-fx",
+    "dojo/NodeList-manipulate",
+    "dojo/NodeList-traverse",
+    "dojo/Stateful",
+    "dojo/cldr/nls/buddhist",
+    "dojo/cldr/nls/chinese",
+    "dojo/cldr/nls/coptic",
+    "dojo/cldr/nls/currency",
+    "dojo/cldr/nls/dangi",
+    "dojo/cldr/nls/ethiopic",
+    "dojo/cldr/nls/ethiopic-amete-alem",
+    "dojo/cldr/nls/generic",
+    "dojo/cldr/nls/gregorian",
+    "dojo/cldr/nls/hebrew",
+    "dojo/cldr/nls/indian",
+    "dojo/cldr/nls/islamic",
+    "dojo/cldr/nls/islamic-civil",
+    "dojo/cldr/nls/islamic-rgsa",
+    "dojo/cldr/nls/islamic-tbla",
+    "dojo/cldr/nls/islamic-umalqura",
+    "dojo/cldr/nls/japanese",
+    "dojo/cldr/nls/number",
+    "dojo/cldr/nls/persian",
+    "dojo/cldr/nls/roc",
+	"dojo/colors",
+    "dojo/cookie",
+    "dojo/currency",
+    "dojo/data/ItemFileReadStore",
+    "dojo/data/ItemFileWriteStore",
+    "dojo/data/ObjectStore",
+    "dojo/date",
+    "dojo/date/locale",
+    "dojo/dnd/AutoSource",
+    "dojo/dnd/Moveable",
+    "dojo/dnd/Mover",
+    "dojo/dnd/Target",
+    "dojo/dnd/TimedMoveable",
+    "dojo/dnd/autoscroll",
+    "dojo/dnd/common",
+    "dojo/fx",
+    "dojo/fx/Toggler",
+    "dojo/fx/easing",
+    "dojo/html",
+    "dojo/i18n",
+    "dojo/number",
+    "dojo/parser",
+    "dojo/regexp",
+    "dojo/require",
+    "dojo/selector/acme",
+    "dojo/selector/lite",
+    "dojo/store/Memory",
+    "dojo/text",
+    "dojo/window"
+];
+
+var dijitDeps = [
+    "dijit/_Widget",
+    "dijit/_TemplatedMixin",
+    "dijit/layout/_LayoutWidget",
+    "dijit/form/_FormWidget",
+    "dijit/main",
+    "dijit/_base",
+    "dijit/Calendar",
+    "dijit/CalendarLite",
+    "dijit/CheckedMenuItem",
+    "dijit/Dialog",
+    "dijit/DialogUnderlay",
+    "dijit/Editor",
+    "dijit/Menu",
+    "dijit/MenuBar",
+    "dijit/MenuBarItem",
+    "dijit/MenuSeparator",
+    "dijit/PopupMenuItem",
+    "dijit/ProgressBar",
+    "dijit/TitlePane",
+    "dijit/Toolbar",
+    "dijit/ToolbarSeparator",
+    "dijit/Tooltip",
+    "dijit/TooltipDialog",
+    "dijit/Tree",
+    "dijit/_DialogMixin",
+    "dijit/_HasDropDown",
+    "dijit/_Templated",
+    "dijit/_TimePicker",
+    "dijit/_Widget",
+    "dijit/_editor/RichText",
+    "dijit/_editor/_Plugin",
+    "dijit/_editor/range",
+    "dijit/dijit",
+    "dijit/form/Button",
+    "dijit/form/CheckBox",
+    "dijit/form/ComboBox",
+    "dijit/form/ComboBoxMixin",
+    "dijit/form/ComboButton",
+    "dijit/form/CurrencyTextBox",
+    "dijit/form/DateTextBox",
+    "dijit/form/DropDownButton",
+    "dijit/form/FilteringSelect",
+    "dijit/form/Form",
+    "dijit/form/HorizontalSlider",
+    "dijit/form/MultiSelect",
+    "dijit/form/NumberSpinner",
+    "dijit/form/NumberTextBox",
+    "dijit/form/RadioButton",
+    "dijit/form/Select",
+    "dijit/form/SimpleTextarea",
+    "dijit/form/TextBox",
+    "dijit/form/Textarea",
+    "dijit/form/TimeTextBox",
+    "dijit/form/ToggleButton",
+    "dijit/form/_ButtonMixin",
+    "dijit/form/_DateTimeTextBox",
+    "dijit/form/_ExpandingTextAreaMixin",
+    "dijit/form/_FormMixin",
+    "dijit/form/_FormSelectWidget",
+    "dijit/form/_RadioButtonMixin",
+    "dijit/form/_Spinner",
+    "dijit/form/_TextBoxMixin",
+    "dijit/form/_ToggleButtonMixin",
+    "dijit/layout/AccordionContainer",
+    "dijit/hccss",
+    "dijit/layout/AccordionPane",
+    "dijit/layout/BorderContainer",
+    "dijit/layout/ContentPane",
+    "dijit/layout/LayoutContainer",
+    "dijit/layout/ScrollingTabController",
+    "dijit/layout/StackContainer",
+    "dijit/layout/StackController",
+    "dijit/layout/TabContainer",
+    "dijit/layout/TabController",
+    "dijit/layout/_ContentPaneResizeMixin",
+    "dijit/layout/_TabContainerBase",
+    "dijit/layout/utils",
+    "dijit/nls/common",
+    "dijit/nls/loading",
+    "dijit/tree/ForestStoreModel",
+    "dijit/tree/TreeStoreModel",
+    "dijit/tree/_dndContainer",
+    "dijit/tree/_dndSelector",
+    "dijit/_editor/nls/commands"
+];
+var dojoxDeps = [
+    "dojox/charting/themes/Julie",
+    "dojox/charting/themes/PlotKit/base",
+    "dojox/charting/themes/PlotKit/green",
+    "dojox/charting/widget/Chart2D",
+    "dojox/charting/widget/Legend",
+    "dojox/data/dom",
+    "dojox/data/QueryReadStore",
+    "dojox/form/Uploader",
+    "dojox/gfx/path",
+    "dojox/gfx/shape",
+    "dojox/gfx/silverlight",
+    "dojox/gfx/svg",
+    "dojox/gfx/vml",
+    "dojox/grid/_View",
+    "dojox/grid/DataGrid",
+    "dojox/grid/EnhancedGrid",
+    "dojox/grid/cells/dijit",
+    "dojox/grid/enhanced/_Events",
+    "dojox/grid/enhanced/_PluginManager",
+    "dojox/grid/enhanced/nls/EnhancedGrid",
+    "dojox/grid/enhanced/nls/Filter",
+    "dojox/grid/enhanced/nls/Pagination",
+    "dojox/grid/enhanced/plugins/IndirectSelection",
+    "dojox/grid/enhanced/plugins/Menu",
+    "dojox/grid/enhanced/plugins/Pagination",
+    "dojox/grid/enhanced/plugins/_SelectionPreserver",
+    "dojox/json/ref",
+    "dojox/layout/GridContainer",
+    "dojox/layout/TableContainer",
+    "dojox/layout/ContentPane",
+    "dojox/mdnd/AreaManager",
+    "dojox/mdnd/DropIndicator",
+    "dojox/mdnd/Moveable",
+    "dojox/mdnd/dropMode/OverDropMode",
+    "dojox/mdnd/dropMode/DefaultDropMode",
+    "dojox/storage/Provider",
+    "dojox/storage/manager",
+    "dojox/validate/regexp",
+    "dojox/widget/Portlet",
+    "dojox/widget/Standby",
+    "dojox/xml/parser",
+    "dojox/storage/LocalStorageProvider"
+];
+
+var dialogDeps = [
+];
+
+
+var sageDeps = [
+    "Sage/main",
+    "icrm-js-services"
+];
+
+// Excludes (this will work similar to the old layerDependencies option in 1.6)
+var dijitExcludes = dojoDeps; // dijit depends on dojo layer
+var dojoxExcludes = dojoDeps.concat(dijitDeps); // dojox depends on dojo/dijit
+var sageExcludes = dojoxExcludes.concat(dojoxDeps); // Sage depends on dojo/dijit/dojox
+
+dojoConfig = {
+  // loader configuration
+  packages: [{
+    location: "../bower_components/dojo",
+    name: "dojo"
+  }, {
+    location: "../bower_components/dijit",
+    name: "dijit"
+  }],
+  // now for some profile properties...
+  build: {
+    basePath: ".",
+    releaseDir: "../deploy/content/javascript",
+    cssOptimize: "comments",
+    layerOptimize: false,
+    stripConsole: "warn",
+    plugins: {
+      "xstyle/css": "xstyle/build/amd-css"
+    },
+    layers: {
+      "dojo/dojo": {
+        include: dojoDeps
+      },
+      "dijit/dijit": {
+        include: dijitDeps,
+        exclude: dijitExcludes
+      }
+    }
+  }
+};

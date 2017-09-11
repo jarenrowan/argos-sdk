@@ -1,0 +1,221 @@
+module.exports = function(grunt) {
+  grunt.config('uglify', {
+    options: {
+      screwIE8: true,
+      sourceMap: false,
+      ASCIIOnly: true,
+      compress: {
+        drop_console: true,
+        cascade: true,
+        join_vars: true,
+        if_return: true,
+        conditionals: true,
+        loops: true,
+        booleans: true,
+        properties: true,
+        sequences: true,
+        drop_debugger: true,
+        unused: true,
+      },
+    },
+    dependencies: {
+      files: {
+        'deploy/content/javascript/argos-dependencies.js': [
+          'libraries/l20n/l20n.js',
+          'libraries/Simplate.js',
+          'libraries/canvas2image.js',
+          'libraries/sdata/sdata-client-dependencies-debug.js',
+          'libraries/sdata/sdata-client-debug.js',
+          'libraries/pagejs-1.6.1/page.js',
+          'libraries/pouchdb/pouchdb-6.1.2.js',
+          'libraries/deep-diff/deep-diff-0.2.0.min.js',
+          'deps/babel-polyfill/polyfill.min.js',
+          'deps/moment/moment-with-locales.js',
+          'deps/rx-lite/rx.lite.js',
+          'deps/icrm-js-common/common.bundle.js',
+          'deps/icrm-js-customization/customization.bundle.js',
+          'deps/icrm-js-services/icrm-js-services.js',
+          'deps/redux/redux.min.js',
+          'deps/jquery/jquery.js',
+          'deps/sohoxijs/sohoxi.js',
+          'libraries/chartjs/jquery/Chart.min.js',
+        ],
+      },
+    },
+    amd_dependencies: {
+      files: {
+        'deploy/content/javascript/argos-amd-dependencies.js': [
+
+        ],
+      },
+    },
+    sdk: {
+      files: {
+        'deploy/content/javascript/argos-sdk.js': [
+          <% files.forEach(function(file, i) { %>'<%- file.folderName.replace("../src", "src") %>/<%- file.fileName %>',
+          <%});%>
+        ],
+      },
+    },
+    // dojo_dependencies: {
+    //   files: {
+    //     'deploy/content/javascript/argos-amd-dependencies.js': [
+    //       {
+    //         "text": "hash.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "RouterBase.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/router/"
+    //       },
+    //       {
+    //         "text": "router.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "i18n.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "regexp.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "string.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "cache.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "number.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "touch.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "NodeList-manipulate.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "hccss.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "all.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/promise/"
+    //       },
+    //       {
+    //         "text": "main.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "Destroyable.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "a11yclick.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "registry.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "Stateful.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "_WidgetBase.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "_AttachMixin.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "_TemplatedMixin.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "_OnDijitClickMixin.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "window.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "manager.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/_base/"
+    //       },
+    //       {
+    //         "text": "a11y.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "focus.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "_FocusMixin.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "uacss.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "hccss.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "_Widget.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/"
+    //       },
+    //       {
+    //         "text": "NodeList-traverse.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "url.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/_base/"
+    //       },
+    //       {
+    //         "text": "stamp.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/date/"
+    //       },
+    //       {
+    //         "text": "parser.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       },
+    //       {
+    //         "text": "QueryResults.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/store/util/"
+    //       },
+    //       {
+    //         "text": "SimpleQueryEngine.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/store/util/"
+    //       },
+    //       {
+    //         "text": "Memory.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/store/"
+    //       },
+    //       {
+    //         "text": "wai.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dijit/_base/"
+    //       },
+    //       {
+    //         "text": "colors.js",
+    //         "path": "../../../argos-sdk/libraries/dojo/dojo/"
+    //       }
+    //     ],
+    //   },
+    },
+  });
+
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+};
