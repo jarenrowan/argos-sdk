@@ -34,8 +34,10 @@ call grunt uglify
 xcopy localization\locales\argos\*.l20n deploy\localization\locales\argos\ /E /Y
 xcopy min\*.css deploy\content\ /E /Y
 xcopy deps\sohoxicss\*.css deploy\content\css\ /E /Y
+xcopy content\images\*.png deploy\content\images\ /E /Y
+xcopy content\images\*.gif deploy\content\images\ /E /Y
 xcopy deps\sohoxicultures\*.js deploy\content\javascript\cultures\  /E /Y
-xcopy libraries\dojo\dojo\*.js deploy\content\dojo\dojo\  /E /Y
+xcopy libraries\dojo\dojo\dojo.js deploy\content\dojo\dojo\  /E /Y
 xcopy libraries\dojo\dojo\cldr\nls\*.js deploy\content\dojo\dojo\cldr\nls\  /E /Y
 
 if %errorlevel% neq 0 exit /b %errorlevel%
