@@ -13,19 +13,6 @@ New-Item -ItemType Directory deploy\content\dojo\dojox
 
 grunt clean:css clean:js less
 yarn run build
-
-Copy-Item node_modules\babel-polyfill\dist\polyfill.min.js deps\babel-polyfill\
-Copy-Item node_modules\moment\min\moment-with-locales.js deps\moment\
-Copy-Item node_modules\rx-lite\rx.lite.js deps\rx-lite\
-Copy-Item node_modules\@infor\icrm-js-common\dist\bundles\common.bundle.js deps\icrm-js-common\
-Copy-Item node_modules\@infor\icrm-js-customization\dist\bundles\customization.bundle.js deps\icrm-js-customization\
-Copy-Item node_modules\@infor\icrm-js-services\dist\bundles\icrm-js-services.js deps\icrm-js-services\
-Copy-Item node_modules\redux\dist\redux.min.js deps\redux\
-Copy-Item node_modules\jquery\dist\jquery.js deps\jquery\
-Copy-Item node_modules\@infor\sohoxi\dist\js\sohoxi.js deps\sohoxijs\
-Copy-Item node_modules\@infor\sohoxi\dist\css\*.css deps\sohoxicss\
-Copy-Item node_modules\@infor\sohoxi\dist\js\cultures\*.js deps\sohoxicultures\
-
 grunt argos-deps
 grunt uglify
 
