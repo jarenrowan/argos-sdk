@@ -39,7 +39,7 @@ deploy/
 deps/
 .idea/
 *.patch
-
+temp.uglify.js
 *.swp
 
 # nodejs

@@ -1,9 +1,9 @@
 module.exports = function gruntDeps(grunt) {
   grunt.config('argos-deps', {
     files: '../src/**/*.js',
-    cwd: './build',
-    template: 'release.tmpl',
-    output: 'release.jsb2',
+    cwd: './grunt-tasks',
+    template: 'grunt-uglify.tmpl',
+    output: 'temp.uglify.js',
     modules: [{
       name: 'argos',
       location: '../src',
