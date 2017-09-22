@@ -13,9 +13,37 @@
  * limitations under the License.
  */
 
-import lang from 'dojo/_base/lang';
+// import lang from 'dojo/_base/lang';
 
-export default function getResource(id) {
+const instances = {};
+
+export function registerInstance(instance, name) {
+  instances[name] = instance;
+}
+
+export function getInstance(name) {
+  return instances[name];
+}
+
+export default function getResource(key) {
+  const results = Object.keys(instances)
+    .filter((name) => {
+      return instances[name].exists(key);
+    })
+    .map((name) => {
+      return instances[name];
+    });
+
+  if (results.length === 1) {
+    return results[0].t(key, { returnObjects: true });
+  } else if (results.length > 1) {
+    throw new Error(`Duplicate translation key: ${key} was requested.`);
+  } else {
+    throw new Error(`Cannot find translation key: ${key} in any instances.`);
+  }
+}
+
+/*
   const { defaultLocaleContext, localeContext, regionalContext } = window;
   if (!defaultLocaleContext || !localeContext) {
     return new Proxy({}, {
@@ -35,4 +63,4 @@ export default function getResource(id) {
 
   lang.mixin(defaultAttributes, currentAttributes);
   return lang.mixin(defaultAttributes, regionalattributes);
-}
+}*/

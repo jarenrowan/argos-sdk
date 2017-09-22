@@ -378,11 +378,6 @@
   ],
   "resources": [
     {
-      "src": "../localization/locales/argos",
-      "dest": "localization/locales/argos",
-      "filters": ".*(\\.l20n)"
-    },
-    {
       "src": "../content",
       "dest": "content",
       "filters": ".*(\\.css|\\.jpg|\\.png|\\.gif)"

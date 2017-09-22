@@ -36,6 +36,8 @@ module.exports = {
     "DeepDiff": false,
     "ICRMCustomizationSDK": false,
     "ICRMCommonSDK": false,
+    "i18next": false,
+    "i18nextXHRBackend": false,
   },
   rules: {
     /**

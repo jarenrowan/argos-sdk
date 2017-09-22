@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import ConfigureQuickActions from './Views/ConfigureQuickActions';
 import LinkView from './Views/Link';
 import initCulture from './CultureInfo';
